@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anurag का रोस्ट हाउस 🔥</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+        }
+        h1 {
+            color: #d32f2f;
+            margin-bottom: 10px;
+            font-size: 26px;
+        }
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        input[type="text"], select {
+            width: 85%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+        input[type="text"]:focus, select:focus {
+            border-color: #ff4b2b;
+        }
+        button {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        #result-box {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #fff0f0;
+            border-left: 5px solid #ff4b2b;
+            display: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🔥 Anurag का खतरनाक रोस्ट हाउस 🔥</h1>
+        <p>नाम लिखो, जेंडर चुनो और फिर असली मज़ा देखो!</p>
+        
+        <input type="text" id="username" placeholder="मित्र का नाम यहाँ लिखें...">
+        <br>
+        <select id="gender">
+            <option value="male">लड़का (Boy)</option>
+            <option value="female">लड़की (Girl)</option>
+        </select>
+        <br>
+        <button onclick="generateRoast()">रोस्ट करो!</button>
+
+        <div id="result-box"></div>
+    </div>
+
+    <script>
+        // लड़कों के लिए फनी रोस्ट्स
+        const boyRoasts = [
+            "का दिमाग पढ़ाई के अलावा हर फालतू काम में तेज़ चलता है! 🎮😂",
+            "जब भी किताब खोलता है, सीधे गहरी नींद में चला जाता है! 🛌💤",
+            "खुद को प्रो gamer समझता है, पर नूब की तरह हार जाता है! 🕹️🐒",
+            "बाइक ऐसे भगाता है जैसे इसके पीछे पुलिस की गाड़ी आ रही हो! 🏍️💨",
+            "पूरी क्लास में सबसे आगे बैठने का नाटक करता है, पर ध्यान रील्स पर होता है! 📱🔥"
+        ];
+
+        // लड़कियों के लिए फनी रोस्ट्स
+        const girlRoasts = [
+            "की इंस्टाग्राम स्टोरी दिनभर में खत्म होने का नाम ही नहीं लेती! 📸✨",
+            "फोटो खींचते समय ऐसे पोज़ देती है जैसे कोई बहुत बड़ा अवॉर्ड मिल रहा हो! 🤳😂",
+            "शॉपिंग पर जाए तो पूरा मॉल सिर पर उठा ले, पर खरीदे सिर्फ एक छोटी सी चीज़! 🛍️🤦‍♀️",
+            "गुस्सा तो ऐसा दिखाती है जैसे दुनिया की सबसे बड़ी डॉन हो! 🔥👑",
+            "सुबह अलार्म बंद करके दोबारा सो जाती है, और फिर कहती है वक्त ही कम मिला! ⏰😴"
+        ];
+
+        function generateRoast() {
+            const nameInput = document.getElementById('username').value.trim();
+            const gender = document.getElementById('gender').value;
+            const resultBox = document.getElementById('result-box');
+
+            if (nameInput === "") {
+                alert("अरे भाई, पहले नाम तो लिखो!");
+                return;
+            }
+
+            let selectedRoast = "";
+
+            if (gender === "male") {
+                const randomIndex = Math.floor(Math.random() * boyRoasts.length);
+                selectedRoast = nameInput + " " + boyRoasts[randomIndex];
+            } else {
+                const randomIndex = Math.floor(Math.random() * girlRoasts.length);
+                selectedRoast = nameInput + " " + girlRoasts[randomIndex];
+            }
+
+            resultBox.innerText = selectedRoast;
+            resultBox.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
